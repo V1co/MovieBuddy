@@ -1,22 +1,23 @@
-import { useState } from 'react'
 import './App.css'
+import Watchlist from './components/Watchlist'
+import Home from './components/Home'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 function App() {
-  const [query, setQuery] = useState('')
-
-  const handleSubmit = () => {
-   console.log(query)
-  }
-
-  console.log(query);
-
   return (
-    <>
-      <div className='form'>
-        <input placeholder='Type a product' onChange={(e) => setQuery(e.target.value)} />
-        <button onClick={handleSubmit}>Submit</button>
-      </div>
-    </>
+    <BrowserRouter>
+      <header>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/watchlist">Watchlist</Link>
+        </nav>
+      </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/watchlist" element={<Watchlist />} />
+      </Routes>
+
+    </BrowserRouter>
   )
 }
 
