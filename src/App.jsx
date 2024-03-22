@@ -2,8 +2,8 @@ import './App.css'
 import Watchlist from './components/Watchlist'
 import Home from './components/Home'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import { useState } from 'react'
-import { MoviesContext } from './context/MoviesContext'
+import { MoviesContext } from "./context/MoviesContext";
+import { useState } from 'react';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -12,9 +12,9 @@ function App() {
     <BrowserRouter>
       <MoviesContext.Provider value= {{ movies, setMovies }}>
         <header>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/watchlist">Watchlist</Link>
+          <nav className='flex flex-row justify-center gap-4 mb-4'>
+            <Link to="/" className='text-lg'>Home</Link>
+            <Link to="/watchlist" className='text-lg'>Watchlist</Link>
           </nav>
         </header>
         <Routes>
