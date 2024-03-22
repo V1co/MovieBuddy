@@ -3,7 +3,7 @@ import { MoviesContext } from "../context/MoviesContext";
 
 const SearchForm = () => {
   const [query, setQuery] = useState('')
-  const { movies, setMovies } = useContext(MoviesContext);
+  const { setMovies } = useContext(MoviesContext);
 
   const options = {
     method: 'GET',
@@ -19,17 +19,20 @@ const SearchForm = () => {
     try {
       const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, options)
       const data = await res.json();
-      console.log(data.results)
       setMovies(data.results)
-      console.log(movies)
+      // console.log(movies)
     } catch (err) {
       console.log(err);
     }
   }
 
   return (
-    <div className='form'>
-      <input placeholder='Type a product' onChange={(e) => setQuery(e.target.value)} />
+    <div className='form flex flex-row gap-2 justify-center'>
+      <input 
+        placeholder='Find movie'
+        onChange={(e) => setQuery(e.target.value)} 
+        className='border border-slate-600 px-2'
+      />
       <button onClick={fetchData}>Submit</button>
     </div>
   )
