@@ -1,15 +1,9 @@
 import Movie from "./Movie";
 import { WatchlistContext } from "../context/WatchlistContext";
-import { MoviesContext } from "../context/MoviesContext";
 import { useContext } from "react";
 
-const MoviesList = () => {
+const WatchlistList = () => {
     const { watchlist, setWatchlist } = useContext(WatchlistContext)
-    const { movies } = useContext(MoviesContext);
-
-    // console.log(movies)
-
-    const moviesSortedByPopularity = [...movies.sort((a,b) => b.popularity - a.popularity)]
 
     const handleWatchlist = (movie) => {
         setWatchlist(prev => {
@@ -27,9 +21,9 @@ const MoviesList = () => {
     }
 
     return(
-        <div className="py-8">
-            {moviesSortedByPopularity.length > 0 && (
-                moviesSortedByPopularity.map(movie => (
+        <div className="">
+            {watchlist.length > 0 ? (
+                watchlist.map(movie => (
                     <Movie
                         key={movie.id}
                         title={movie.title}
@@ -42,9 +36,9 @@ const MoviesList = () => {
                         movie={movie}
                     />
                 ))
-            )}
+            ) : <h3>Currently no movies in Watchlist</h3>}
         </div>
     )
 }
 
-export default MoviesList
+export default WatchlistList
