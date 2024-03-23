@@ -16,7 +16,6 @@ const WatchlistList = () => {
             }
             return newArr
         })
-        console.log(watchlist)
     }
 
     return(
@@ -35,7 +34,6 @@ const WatchlistList = () => {
                         id={movie.id}
                         movie={movie}
                         type={movie.media_type}
-                        genres={movie.genre_ids}
                     />
                 ))
             ) : <h3>Currently no movies in Watchlist</h3>}
