@@ -1,5 +1,6 @@
 import { WatchlistContext } from "../context/WatchlistContext";
 import { useContext } from "react";
+import genresData from "../constants/genres.json"
 
 const Movie = ( { title, description, poster, rating, popularity, handleWatchlist, movie, type, name } ) => {
     const { watchlist } = useContext(WatchlistContext)
