@@ -1,5 +1,6 @@
 import { WatchlistContext } from "../context/WatchlistContext";
 import { useContext } from "react";
+import genresData from "../constants/genres.json"
 
 const Movie = ({
     title,
@@ -14,6 +15,8 @@ const Movie = ({
     genres
 }) => {
     const { watchlist } = useContext(WatchlistContext)
+
+    console.log(poster)
 
     return(
         <div className="flex mb-8 flex-col sm:gap-4 sm:flex-row">
