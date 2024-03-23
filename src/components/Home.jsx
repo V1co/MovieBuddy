@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 export default function Home() {
   const { movies } = useContext(MoviesContext);
-  
+
   return (
     <>
       <SearchForm />
