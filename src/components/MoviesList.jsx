@@ -38,6 +38,7 @@ const MoviesList = () => {
                         id={movie.id}
                         movie={movie}
                         type={movie.media_type}
+                        genres={movie.genre_ids}
                     />
                 ))
             )}
