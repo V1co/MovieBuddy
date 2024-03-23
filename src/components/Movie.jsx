@@ -15,13 +15,12 @@ const Movie = ({
     genres
 }) => {
     const { watchlist } = useContext(WatchlistContext)
-
-    console.log(poster)
+    const placeholderPoster = "https://critics.io/img/movies/poster-placeholder.png"
 
     return(
         <div className="flex mb-8 flex-col sm:gap-4 sm:flex-row">
             <img
-                src={`https://image.tmdb.org/t/p/w500/${poster}`}
+                src={poster? `https://image.tmdb.org/t/p/w500/${poster}` : placeholderPoster}
                 className="w-48 h-64 mb-4 self-center sm:w-36 sm:h-48 sm:mr-4"
             />
 
