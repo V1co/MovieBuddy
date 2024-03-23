@@ -6,10 +6,8 @@ import { useContext } from "react";
 const MoviesList = () => {
     const { watchlist, setWatchlist } = useContext(WatchlistContext)
     const { movies } = useContext(MoviesContext);
-
-    // console.log(movies)
-
-    const moviesSortedByPopularity = [...movies.sort((a,b) => b.popularity - a.popularity)]
+    const moviesAndSeries = [...movies.filter(item => item.media_type !== 'person')]
+    const moviesSortedByPopularity = [...moviesAndSeries.sort((a,b) => b.popularity - a.popularity)]
 
     const handleWatchlist = (movie) => {
         setWatchlist(prev => {
@@ -22,8 +20,6 @@ const MoviesList = () => {
             }
             return newArr
         })
-
-        // console.log(watchlist)
     }
 
     return(
@@ -33,6 +29,7 @@ const MoviesList = () => {
                     <Movie
                         key={movie.id}
                         title={movie.title}
+                        name={movie.name}
                         description={movie.overview}
                         poster={movie.poster_path}
                         rating={movie.vote_average}
@@ -40,6 +37,7 @@ const MoviesList = () => {
                         handleWatchlist={handleWatchlist}
                         id={movie.id}
                         movie={movie}
+                        type={movie.media_type}
                     />
                 ))
             )}

@@ -16,8 +16,6 @@ const WatchlistList = () => {
             }
             return newArr
         })
-
-        // console.log(watchlist)
     }
 
     return(
@@ -27,6 +25,7 @@ const WatchlistList = () => {
                     <Movie
                         key={movie.id}
                         title={movie.title}
+                        name={movie.name}
                         description={movie.overview}
                         poster={movie.poster_path}
                         rating={movie.vote_average}
@@ -34,6 +33,7 @@ const WatchlistList = () => {
                         handleWatchlist={handleWatchlist}
                         id={movie.id}
                         movie={movie}
+                        type={movie.media_type}
                     />
                 ))
             ) : <h3>Currently no movies in Watchlist</h3>}

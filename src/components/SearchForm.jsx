@@ -15,9 +15,9 @@ const SearchForm = () => {
 
   const fetchData = async (e) => {
     e.preventDefault()
-    
+
     try {
-      const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, options)
+      const res = await fetch(`https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=1`, options)
       const data = await res.json();
       setMovies(data.results)
       // console.log(movies)
@@ -27,14 +27,14 @@ const SearchForm = () => {
   }
 
   return (
-    <div className='form flex flex-row gap-2 justify-center'>
-      <input 
-        placeholder='Find movie'
-        onChange={(e) => setQuery(e.target.value)} 
+    <form className='form flex flex-row gap-4 justify-center'>
+      <input
+        placeholder='Find movie/series'
+        onChange={(e) => setQuery(e.target.value)}
         className='border border-slate-600 px-2'
       />
       <button onClick={fetchData}>Submit</button>
-    </div>
+    </form>
   )
 }
 
