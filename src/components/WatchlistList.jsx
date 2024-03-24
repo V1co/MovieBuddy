@@ -20,9 +20,10 @@ const WatchlistList = () => {
     }
 
     return(
-        <div className="">
+        <div className="py-12 absolute top-52 w-full bg-white dark:bg-neutral-800">
             {watchlist.length > 0 ? (
                 watchlist.map(movie => (
+                    <>
                     <Movie
                         key={movie.id}
                         title={movie.title}
@@ -37,8 +38,11 @@ const WatchlistList = () => {
                         type={movie.media_type}
                         genres={movie.genre_ids}
                     />
+                    {watchlist.indexOf(movie) !== watchlist.length -1?
+                        <hr className="w-6/8 mx-12 h-0.5 mx-auto my-8 bg-neutral-400 dark:bg-gray-700" /> : ""}
+                    </>
                 ))
-            ) : <h3>Currently no movies in Watchlist</h3>}
+            ) : <h2 className="text-2xl text-center">Currently no movies in watchlist</h2>}
         </div>
     )
 }

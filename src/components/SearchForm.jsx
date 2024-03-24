@@ -27,13 +27,19 @@ const SearchForm = () => {
   }
 
   return (
-    <form className='form flex flex-row gap-4 justify-center'>
+    <form className='form flex flex-row justify-center absolute -bottom-5 -ml-1/4 left-0 right-0 z-10'>
       <input
         placeholder='Find movie/series'
         onChange={(e) => setQuery(e.target.value)}
-        className='border border-slate-600 px-2'
+        className='text-neutral-800 dark:text-white border border-neutral-400 dark:border-neutral-600 px-4 py-2 w-4/6 rounded-l-md dark:bg-neutral-800'
       />
-      <button onClick={fetchData}>Submit</button>
+      <button
+        onClick={fetchData}
+        className='text-black dark:text-white font-bold bg-white dark:bg-neutral-800 min-w-16
+        border border-l-0 border-neutral-400 dark:border-neutral-600 rounded-l-none w-1/6 rounded-r-md'
+      >
+        Search
+      </button>
     </form>
   )
 }

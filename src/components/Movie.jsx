@@ -18,23 +18,24 @@ const Movie = ({
     const placeholderPoster = "https://critics.io/img/movies/poster-placeholder.png"
 
     return(
-        <div className="flex mb-8 flex-col sm:gap-4 sm:flex-row">
+        <div className="flex flex-col sm:gap-4 sm:flex-row px-4 sm:px-12 bg-white dark:bg-neutral-800">
             <img
                 src={poster? `https://image.tmdb.org/t/p/w500/${poster}` : placeholderPoster}
-                className="w-48 h-64 mb-4 self-center sm:w-36 sm:h-48 sm:mr-4"
+                className="w-48 self-center mb-4 sm:mb-0 sm:w-36 sm:mr-4"
             />
 
-            <div className="flex flex-col gap-2">
-                <div className="flex flex-col gap-2 self-center sm:self-start sm:flex-row">
-                    <span className="font-bold text-xl self-center">
+            <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2 items-center sm:self-start sm:flex-row">
+                    <span className="font-bold text-xl">
                         {type === "tv"? name : title}
                     </span>
-                    <div>
-                        <span>* {rating} ({popularity} votes)</span>
-                        <span className="font-bold text-slate-400">
-                        <button onClick={() => handleWatchlist(movie)}>
+                    <div className="flex gap-4 items-center">
+                        <span>* {rating} ({popularity}k votes)</span>
+                        <button
+                            onClick={() => handleWatchlist(movie)}
+                            className="border text-black dark:text-white border-black dark:border-white rounded px-4 py-0.5">
                             {watchlist.includes(movie)? '- WATCHLIST' : '+ WATCHLIST'}
-                        </button></span>
+                        </button>
                     </div>
                 </div>
 
@@ -44,9 +45,8 @@ const Movie = ({
                         else return `${genresData[genre]}, `
                     })}
                 </div>
-                <p className="text-left mb-8">{description}</p>
+                <p className="sm:text-left text-center">{description}</p>
             </div>
-            <hr />
         </div>
     )
 }
