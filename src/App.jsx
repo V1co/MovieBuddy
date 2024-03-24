@@ -18,12 +18,6 @@ function App() {
     <BrowserRouter>
       <MoviesContext.Provider value= {{ movies, setMovies }}>
         <WatchlistContext.Provider value= {{ watchlist, setWatchlist }}>
-          <header>
-            <nav className='flex flex-row justify-center gap-4 mb-4'>
-              <Link to="/" className='text-lg'>Home</Link>
-              <Link to="/watchlist" className='text-lg'>Watchlist</Link>
-            </nav>
-          </header>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/watchlist" element={<Watchlist />} />
