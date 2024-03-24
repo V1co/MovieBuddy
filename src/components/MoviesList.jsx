@@ -42,7 +42,7 @@ const MoviesList = () => {
                             genres={movie.genre_ids}
                         />
                         {moviesSortedByPopularity.indexOf(movie) !== moviesAndSeries.length -1?
-                        <hr className="w-6/8 mx-12 h-0.5 mx-auto my-8 bg-neutral-400 dark:bg-gray-700" /> : ""}
+                        <hr className="mx-4 sm:mx-12 h-0.5 mx-auto my-8 bg-neutral-400 dark:bg-gray-700" /> : ""}
                     </>
                 ))
             )}
