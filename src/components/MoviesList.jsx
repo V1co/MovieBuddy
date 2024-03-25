@@ -12,9 +12,9 @@ const MoviesList = () => {
     const handleWatchlist = (movie) => {
         setWatchlist(prev => {
             const newArr = [...prev]
-            if (newArr.includes(movie)) {
-                console.log(`removed movie: "${movie.title}"`);
-                newArr.splice(newArr.indexOf(movie), 1)
+            const existingMovie = newArr.find(item => item.id === movie.id)
+            if (existingMovie) {
+                newArr.splice(newArr.indexOf(existingMovie), 1)
             } else {
                 newArr.push(movie)
             }

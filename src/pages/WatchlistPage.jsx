@@ -1,7 +1,7 @@
-import WatchlistList from "../components/WatchlistList";
+import Watchlist from "../components/Watchlist";
 import { Link } from "react-router-dom";
 
-export default function Watchlist() {
+export default function WatchlistPage() {
 
   return (
     <div>
@@ -13,7 +13,7 @@ export default function Watchlist() {
           <Link to="/" className='text-xl text-white font-bold'>Find movies</Link>
         </div>
       </header>
-      <WatchlistList />
+      <Watchlist />
     </div>
   )
 }

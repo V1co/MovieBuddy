@@ -20,7 +20,6 @@ const SearchForm = () => {
       const res = await fetch(`https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=1`, options)
       const data = await res.json();
       setMovies(data.results)
-      // console.log(movies)
     } catch (err) {
       console.log(err);
     }

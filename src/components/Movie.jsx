@@ -30,11 +30,11 @@ const Movie = ({
                         {type === "tv"? name : title}
                     </span>
                     <div className="flex gap-4 items-center">
-                        <span>* {rating} ({popularity}k votes)</span>
+                        <span>* {rating} ({popularity.toFixed(1)}k votes)</span>
                         <button
                             onClick={() => handleWatchlist(movie)}
                             className="border text-black dark:text-white border-black dark:border-white rounded px-4 py-0.5">
-                            {watchlist.includes(movie)? '- WATCHLIST' : '+ WATCHLIST'}
+                            {watchlist.find(item => item.id === movie.id)? '- WATCHLIST' : '+ WATCHLIST'}
                         </button>
                     </div>
                 </div>
