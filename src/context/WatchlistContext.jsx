@@ -1,3 +1,3 @@
-import { createContext } from "react";
+import { atomWithStorage } from 'jotai/utils';
 
-export const WatchlistContext = createContext('');
+export const WatchlistContext = atomWithStorage('watchlist', []);

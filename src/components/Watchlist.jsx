@@ -1,9 +1,9 @@
 import Movie from "./Movie";
 import { WatchlistContext } from "../context/WatchlistContext";
-import { useContext } from "react";
+import { useAtom } from "jotai";
 
 const Watchlist = () => {
-    const { watchlist, setWatchlist } = useContext(WatchlistContext)
+    const [watchlist, setWatchlist] = useAtom(WatchlistContext)
 
     const handleWatchlist = (movie) => {
         setWatchlist(prev => {

@@ -1,9 +1,10 @@
-import { useState, useContext } from 'react'
 import { MoviesContext } from "../context/MoviesContext";
+import { QueryContext } from "../context/QueryContext"
+import { useAtom, useSetAtom } from 'jotai';
 
 const SearchForm = () => {
-  const [query, setQuery] = useState('')
-  const { setMovies } = useContext(MoviesContext);
+  const setMovies = useSetAtom(MoviesContext);
+  const [query, setQuery] = useAtom(QueryContext);
 
   const options = {
     method: 'GET',
@@ -19,7 +20,9 @@ const SearchForm = () => {
     try {
       const res = await fetch(`https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=1`, options)
       const data = await res.json();
-      setMovies(data.results)
+      if (data.results.length === 0) {
+        console.log('empty');
+      } else setMovies(data.results)
     } catch (err) {
       console.log(err);
     }
