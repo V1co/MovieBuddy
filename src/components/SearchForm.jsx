@@ -1,10 +1,14 @@
 import { MoviesContext } from "../context/MoviesContext";
 import { QueryContext } from "../context/QueryContext"
-import { useAtom, useSetAtom } from 'jotai';
+import { NotFoundContext } from "../context/NotFoundContext"
+import { useSetAtom } from 'jotai';
+import { useRef } from "react";
 
 const SearchForm = () => {
   const setMovies = useSetAtom(MoviesContext);
-  const [query, setQuery] = useAtom(QueryContext);
+  const setQuery = useSetAtom(QueryContext);
+  const setNotFound = useSetAtom(NotFoundContext);
+  const inputRef = useRef(null)
 
   const options = {
     method: 'GET',
@@ -16,13 +20,17 @@ const SearchForm = () => {
 
   const fetchData = async (e) => {
     e.preventDefault()
+    setQuery(inputRef.current.value)
 
     try {
-      const res = await fetch(`https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=1`, options)
+      const res = await fetch(`https://api.themoviedb.org/3/search/multi?query=${inputRef.current.value}&include_adult=false&language=en-US&page=1`, options)
       const data = await res.json();
       if (data.results.length === 0) {
-        console.log('empty');
-      } else setMovies(data.results)
+        setNotFound(true)
+      } else {
+        setMovies(data.results)
+        setNotFound(false)
+      }
     } catch (err) {
       console.log(err);
     }
@@ -32,7 +40,7 @@ const SearchForm = () => {
     <form className='form flex flex-row justify-center absolute -bottom-5 -ml-1/4 left-0 right-0 z-10'>
       <input
         placeholder='Find movie/series'
-        onChange={(e) => setQuery(e.target.value)}
+        ref={inputRef}
         className='text-neutral-800 dark:text-white border border-neutral-400 dark:border-neutral-600 px-4 py-2 w-4/6 rounded-l-md dark:bg-neutral-800'
       />
       <button
