@@ -1,11 +1,11 @@
 import Movie from "./Movie";
 import { WatchlistContext } from "../context/WatchlistContext";
 import { MoviesContext } from "../context/MoviesContext";
-import { useContext } from "react";
+import { useAtomValue, useSetAtom } from "jotai";
 
 const MoviesList = () => {
-    const { watchlist, setWatchlist } = useContext(WatchlistContext)
-    const { movies } = useContext(MoviesContext);
+    const setWatchlist = useSetAtom(WatchlistContext)
+    const movies = useAtomValue(MoviesContext);
     const moviesAndSeries = [...movies.filter(item => item.media_type !== 'person')]
     const moviesSortedByPopularity = [...moviesAndSeries.sort((a,b) => b.popularity - a.popularity)]
 

@@ -1,6 +1,6 @@
 import { WatchlistContext } from "../context/WatchlistContext";
-import { useContext } from "react";
 import genresData from "../constants/genres.json"
+import { useAtomValue } from "jotai"
 
 const Movie = ({
     title,
@@ -14,7 +14,7 @@ const Movie = ({
     name,
     genres
 }) => {
-    const { watchlist } = useContext(WatchlistContext)
+    const watchlist = useAtomValue(WatchlistContext)
     const placeholderPoster = "https://critics.io/img/movies/poster-placeholder.png"
 
     return(
