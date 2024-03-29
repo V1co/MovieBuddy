@@ -1,6 +1,7 @@
 import { WatchlistContext } from "../context/WatchlistContext";
 import genresData from "../constants/genres.json"
 import { useAtomValue } from "jotai"
+import { ReadMore } from "./ReadMore";
 
 const Movie = ({
     title,
@@ -45,7 +46,7 @@ const Movie = ({
                         else return `${genresData[genre]}, `
                     })}
                 </div>
-                <p className="sm:text-left text-center">{description}</p>
+                <ReadMore id={movie.id} text={description} />
             </div>
         </div>
     )
