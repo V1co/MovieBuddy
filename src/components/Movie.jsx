@@ -46,7 +46,7 @@ const Movie = ({
                                 <MdRemoveCircle className="self-center text-black dark:text-white" />
                                 <span>Remove</span>
                             </div>
-                            : <div className="flex flex-row gap-1">
+                            : <div className="flex flex-row gap-1 justify-center sm:justify-normal">
                                 <MdAddCircle className="self-center text-black dark:text-white" />
                                 <span>Watchlist</span>
                             </div>}
