@@ -11,7 +11,7 @@ export default function Home() {
           bg-header bg-cover bg-left-bottom bg-blend-multiply bg-neutral-500 dark:bg-neutral-600">
         <div className="h-full flex flex-row justify-between items-center w-5/6 ml-auto mr-auto">
           <h2 className="text-4xl font-bold text-white self-center m-l-24">Find movies</h2>
-          <Link to="/watchlist" className='text-xl text-white font-bold'>Watchlist</Link>
+          <Link to="/watchlist" className='text-xl text-white font-bold border-b'>Watchlist</Link>
           <SearchForm />
         </div>
       </header>
