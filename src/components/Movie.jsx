@@ -42,11 +42,11 @@ const Movie = ({
                         onClick={() => handleWatchlist(movie)}
                         className="text-black dark:text-white">
                         {watchlist.find(item => item.id === movie.id)?
-                            <div className="flex flex-row gap-1 justify-center sm:justify-normal">
-                                <MdRemoveCircle className="self-center text-black dark:text-white" />
+                            <div className="flex flex-row gap-1 justify-center sm:justify-normal border border-black dark:border-white px-3 rounded">
+                                <MdRemoveCircle className="self-center text-red-700 dark:text-red-500" />
                                 <span>Remove</span>
                             </div>
-                            : <div className="flex flex-row gap-1 justify-center sm:justify-normal">
+                            : <div className="flex flex-row gap-1 justify-center sm:justify-normal border border-black dark:border-white px-3 rounded">
                                 <MdAddCircle className="self-center text-black dark:text-white" />
                                 <span>Watchlist</span>
                             </div>}

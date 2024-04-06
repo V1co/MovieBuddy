@@ -9,9 +9,9 @@ export default defineConfig({
       injectRegister: 'auto',
       registerType: 'autoUpdate',
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}']
+        globPatterns: ['**/*.{js,css,html,ico,jpg,png,svg,webmanifest}']
       },
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg', 'header.jpg'],
+      // includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg', 'header.jpg'],
       manifest: {
         name: 'Movie Buddy',
         short_name: 'MovieBuddy',
