@@ -45,8 +45,7 @@ const SearchForm = () => {
       />
       <button
         onClick={fetchData}
-        className='text-black dark:text-white font-bold bg-white dark:bg-neutral-800 min-w-16
-        border border-l-0 border-neutral-400 dark:border-neutral-600 rounded-l-none w-1/6 rounded-r-md'
+        className='text-black dark:text-white font-bold bg-white dark:bg-neutral-800 min-w-24 border border-l-0 border-neutral-400 dark:border-neutral-600 rounded-l-none w-1/6 rounded-r-md'
       >
         Search
       </button>
