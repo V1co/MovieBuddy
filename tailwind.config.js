@@ -10,6 +10,17 @@ export default {
         'header': "url('../images/header.jpg')",
       },
       darkMode: 'class',
+      animation: {
+        slide: 'slide .2s ease-in-out',
+      },
+
+      // that is actual animation
+      keyframes: ({
+        slide: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+      }),
     },
   },
   plugins: [],
