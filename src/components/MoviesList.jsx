@@ -49,7 +49,7 @@ const MoviesList = () => {
                         <hr className="w-11/12 mx-auto h-0.5 mx-auto my-8 bg-neutral-400 dark:bg-gray-700" /> : ""}
                     </div>
                 ))
-            : notFound? <h2 className="text-2xl text-center">{`Movie/series "${query}" was not found.`}</h2> : ''}
+            : notFound? <h2 className="text-2xl text-center">{`Movie/series: "${query}" was not found.`}</h2> : ''}
         </div>
     )
 }

@@ -38,11 +38,11 @@ const Watchlist = () => {
                           genres={movie.genre_ids}
                       />
                       {watchlist.indexOf(movie) !== watchlist.length -1?
-                        <hr className="w-11/12 mx-auto h-0.5 mx-auto my-8 bg-neutral-400 dark:bg-gray-700" /> : ""
+                        <hr className="w-11/12 mx-auto h-0.5 my-8 bg-neutral-400 dark:bg-gray-700" /> : ""
                       }
                     </>
                 ))
-            ) : <h2 className="text-2xl text-center">Currently no movies in watchlist</h2>}
+            ) : <h2 className="text-2xl text-center">Currently no movies in watchlist.</h2>}
         </div>
     )
 }
