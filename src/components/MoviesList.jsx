@@ -11,7 +11,7 @@ const MoviesList = () => {
     const query = useAtomValue(QueryContext)
     const notFound = useAtomValue(NotFoundContext)
     const moviesAndSeries = [...movies.filter(item => item.media_type !== 'person')]
-    const moviesSortedByPopularity = [...moviesAndSeries.sort((a,b) => b.popularity - a.popularity)]
+    const moviesSortedByPopularity = [...moviesAndSeries.sort((a,b) => b.vote_count - a.vote_count)]
 
     const handleWatchlist = (movie) => {
         setWatchlist(prev => {
@@ -26,6 +26,8 @@ const MoviesList = () => {
         })
     }
 
+    console.log(moviesSortedByPopularity)
+
     return(
         <div className="py-12 absolute top-52 w-full bg-white dark:bg-neutral-800">
             {moviesSortedByPopularity.length > 0 && !notFound?
@@ -38,7 +40,7 @@ const MoviesList = () => {
                             description={movie.overview}
                             poster={movie.poster_path}
                             rating={movie.vote_average}
-                            popularity={movie.popularity}
+                            votes={movie.vote_count}
                             handleWatchlist={handleWatchlist}
                             id={movie.id}
                             movie={movie}
