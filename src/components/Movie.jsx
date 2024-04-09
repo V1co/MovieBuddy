@@ -9,7 +9,7 @@ const Movie = ({
     description,
     poster,
     rating,
-    popularity,
+    votes,
     handleWatchlist,
     movie,
     type,
@@ -35,7 +35,7 @@ const Movie = ({
                         <div className="flex flex-row">
                             <MdOutlineStar className="mr-1 self-center text-yellow-400"/>
                             <span>{rating.toFixed(1)}/10</span>
-                            <span className="ml-1">({popularity.toFixed(1)}k votes)</span>
+                            <span className="ml-1">({votes} votes)</span>
                         </div>
                     </div>
                     <button

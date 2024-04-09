@@ -30,7 +30,7 @@ const Watchlist = () => {
                           description={movie.overview}
                           poster={movie.poster_path}
                           rating={movie.vote_average}
-                          popularity={movie.popularity}
+                          votes={movie.vote_count}
                           handleWatchlist={handleWatchlist}
                           id={movie.id}
                           movie={movie}
