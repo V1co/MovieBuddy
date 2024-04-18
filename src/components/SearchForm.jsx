@@ -3,12 +3,14 @@ import { QueryContext } from "../context/QueryContext"
 import { NotFoundContext } from "../context/NotFoundContext"
 import { useSetAtom } from 'jotai';
 import { useRef } from "react";
+import { LoadingContext } from "../context/LoadingContext";
 
 const SearchForm = () => {
   const setMovies = useSetAtom(MoviesContext);
   const setQuery = useSetAtom(QueryContext);
   const setNotFound = useSetAtom(NotFoundContext);
   const inputRef = useRef(null)
+  const setIsLoading = useSetAtom(LoadingContext)
 
   const options = {
     method: 'GET',
@@ -23,16 +25,21 @@ const SearchForm = () => {
     setQuery(inputRef.current.value)
 
     try {
+      setIsLoading(true)
       const res = await fetch(`https://api.themoviedb.org/3/search/multi?query=${inputRef.current.value}&include_adult=false&language=en-US&page=1`, options)
       const data = await res.json();
       if (data.results.length === 0) {
         setNotFound(true)
       } else {
         setMovies(data.results)
+        console.log(data.results);
         setNotFound(false)
       }
     } catch (err) {
       console.log(err);
+      return
+    } finally {
+      setIsLoading(false)
     }
   }
 
